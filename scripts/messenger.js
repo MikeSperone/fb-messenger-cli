@@ -472,7 +472,7 @@ class Messenger {
                 const results = this.cleanGraphQl(body);
 
                 // threads is an array of graphQl conversation info, no messages
-                if (results.o0.data) {
+                if (results.o0 && results.o0.data) {
                     const threads = results.o0.data.viewer.message_threads.nodes;
 
                     if (!threads) {
