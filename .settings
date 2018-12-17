@@ -11,5 +11,5 @@
   "twoFactorAuth": false,
   "headlessLogin": true,
   "noSandbox": true,
-  "logonTimeout": 86400000
+  "logonTimeout": 8640
 }

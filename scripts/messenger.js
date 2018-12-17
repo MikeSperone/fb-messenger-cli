@@ -423,7 +423,7 @@ class Messenger {
                 isGroup,
                 'snippet': thread.last_message.nodes[0].snippet,
                 'attachments': thread.last_message.nodes[0].blob_attachements,
-                emoji, 
+                emoji,
                 'thread_fbid': id,
                 'timestamp': thread.last_message.nodes[0].timestamp_precise
             };
@@ -470,6 +470,7 @@ class Messenger {
             if (err) callback(err);
             try {
                 const results = this.cleanGraphQl(body);
+                console.log('o0: ', results.o0);
 
                 // threads is an array of graphQl conversation info, no messages
                 if (results.o0 && results.o0.data) {

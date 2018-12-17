@@ -60,16 +60,16 @@ function getDisplayName(author) {
     if(!author) author = { name: 'unknown' };
 
     if(currentConversation && currentConversation.isGroup && Settings.properties.groupColors) {
-        colorPosition = author.name.length % colorList.length; 
+        colorPosition = author.name.length % colorList.length;
     }
-	
-    let displayName;	
+
+    let displayName;
     if (!Settings.properties.useCustomNicknames) {
         displayName = author.name;
     } else {
         displayName = author.custom_nickname || author.name;
     }
-  
+
     if (author.id === messenger.userId) {
         return displayName;
     } else {
@@ -79,9 +79,9 @@ function getDisplayName(author) {
 
 function renderMessage(author, message) {
     let msg = `${getDisplayName(author)}: `;
-  
+
     if (Settings.properties.showTimestamps) {
-    
+
         const timeDifference = Date.now() - message.timestamp;
         const daysAgo = Math.round(timeDifference / msInADay);
 
@@ -154,11 +154,11 @@ function renderMessage(author, message) {
         const a = message.attachment;
         let uri;
         if (a.preview && a.preview.uri) {
-            uri = a.preview.uri;      
+            uri = a.preview.uri;
         } else if (a.preview_image && a.preview_image.uri) {
-            uri = a.preview_image.uri; 
+            uri = a.preview_image.uri;
         }
-    
+
         if (uri) {
             atts[attsNo] = uri;
             const x = `${attsNo}`;
@@ -530,8 +530,8 @@ InteractiveCli.prototype.run = function(){
         emitter.on('sendMessage', listeners.sendMessageListener.bind(listeners));
         emitter.on('getThreadId', listeners.getThreadIdListener.bind(listeners));
         emitter.on('startSearch', listeners.searchListener.bind(listeners));
-	
-        console.log("Fetching conversations...".cyan);	    	
+
+        console.log("Fetching conversations...".cyan);
         messenger.getFriends((err, friends) => {
             if (err) {
                 console.log(`An error occured initially fetching friends list: ${err}`);
@@ -540,7 +540,7 @@ InteractiveCli.prototype.run = function(){
             }
 
             const entry = {
-                id: userId, 
+                id: userId,
                 firstName: "Me",
                 name: "Me",
                 vanity: "unknown",
@@ -555,10 +555,10 @@ InteractiveCli.prototype.run = function(){
                 rlInterface.prompt(true);
             });
 
-            // Set up the line reader	      
+            // Set up the line reader
             rlInterface.on("line", interactive.handler);
             rlInterface.on("close", interactive.exit);
-            rlInterface.prompt(true);      
+            rlInterface.prompt(true);
         });
     });
 };

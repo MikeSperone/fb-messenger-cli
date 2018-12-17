@@ -22,7 +22,7 @@ class Settings {
             twoFactorAuth: false,
             headlessLogin: true,
             noSandbox: true,
-            logonTimeout: 86400000 // 24hrs in ms
+            logonTimeout: 24000 //86400000 // 24hrs in ms
         };
     }
 
